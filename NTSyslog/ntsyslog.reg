@@ -1,0 +1,23 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\SaberNet\Syslog\System]
+"Information"=dword:00000001
+"Warning"=dword:00000001
+"Error"=dword:00000001
+"Audit Success"=dword:00000001
+"Audit Failure"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\SaberNet\Syslog\Security]
+"Information"=dword:00000001
+"Warning"=dword:00000001
+"Error"=dword:00000001
+"Audit Success"=dword:00000001
+"Audit Failure"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\SaberNet\Syslog\Application]
+"Information"=dword:00000001
+"Warning"=dword:00000001
+"Error"=dword:00000001
+"Audit Success"=dword:00000001
+"Audit Failure"=dword:00000001
+

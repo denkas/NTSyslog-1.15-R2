@@ -1,0 +1,685 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+LANGUAGE LANG_JAPANESE, SUBLANG_NEUTRAL
+#pragma code_page(932)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,9,0,2
+ PRODUCTVERSION 1,9,0,2
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104b0"
+        BEGIN
+            VALUE "CompanyName", "Denka's Factory"
+            VALUE "FileDescription", "NTSyslog サービスコントロールマネージャ"
+            VALUE "FileVersion", "1.9.0.2-jp"
+            VALUE "InternalName", "NTSyslog.exe"
+            VALUE "LegalCopyright", "Copyright (c) 1998-2002 SaberNet.net,  日本語対応版 Copyright (c) 2003-2011 Ryo Sugahara / Denka's Factory"
+            VALUE "OriginalFilename", "NTSyslog.exe"
+            VALUE "ProductName", "NTSyslogCtrl"
+            VALUE "ProductVersion", "1.9.0.2-jp"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\NTSyslogCtrl.ico"
+IDI_GREEN_ICON          ICON                    "res\\GreenLight.ICO"
+IDI_YELLOW_ICON         ICON                    "res\\YellowLight.ICO"
+IDI_RED_ICON            ICON                    "res\\RedLight.ICO"
+IDI_ERROR_ICON          ICON                    "res\\Error.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About NTSyslog Service Control Manager..."
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "NTSyslog Service Control Manager Version 1.70.000"
+    IDS_CONFIRM_SAVE        "Do you really want to save the %s settings?\n\nNB: if service is started, you must restart it for change to take effect."
+    IDS_CONFIRM_DISCARD     "Do you really want to discard the changes to the %s settings?"
+END
+
+#endif    // 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 (日本) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 141
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "NTSyslog サービスコントロールマネージャについて"
+FONT 9, "MS UI Gothic", 400, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,9,6,18,21
+    LTEXT           "NTSyslog Service Control Manager Version 1.9.0.1-jp1\n                   日本語対応版 Release 2",IDC_STATUS,39,6,179,18,SS_NOPREFIX
+    DEFPUSHBUTTON   "OK",IDOK,78,107,80,21,WS_GROUP
+    LTEXT           "NTSyslog Service forward NT/2000/XP Eventlogs to a Syslog daemon.\nNTSyslog R2 supported Windows Eventhing 6.0\n\nNT Syslog Service Control Manager by Didier LIROULET\nVersion 1.70.00 Updates by Michael Glaubig",IDC_STATIC,19,29,209,43
+    LTEXT           "日本対応版 Programmed by Ryo.Sugahara / Denka's Factory\n    Copyright (C)2003-2011 Ryo.Sugahara / Denka's Factory\n                        http://www.hi-ho.ne.jp/denkas/",IDC_STATIC,18,78,201,28
+END
+
+IDD_NTSYSLOGCTRL_DIALOG DIALOGEX 0, 0, 319, 267
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "NTSyslog サービスコントロールマネージャ"
+FONT 9, "MS UI Gothic", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "閉じる",IDCANCEL,48,224,80,20
+    PUSHBUTTON      "コンピュータの選択",IDC_SELECT_COMPUTER,17,55,80,14
+    PUSHBUTTON      "サービス開始",IDC_START,120,55,80,14
+    PUSHBUTTON      "サービス停止",IDC_STOP,224,55,80,14
+    PUSHBUTTON      "Syslog &Daemons",IDC_SYSLOGD,17,101,80,14
+    GROUPBOX        "サービスの状態 on Computer <>...",IDC_COMPUTER,7,5,306,73
+    ICON            IDI_GREEN_ICON,IDC_STATUS_LIGHT,17,25,20,20
+    CTEXT           "Service is running.",IDC_STATUS,45,28,261,16,SS_CENTERIMAGE
+    GROUPBOX        "設定",IDC_STATIC,7,84,306,174
+    LTEXT           "転送先の Syslog サーバの設定",IDC_STATIC,104,101,200,14,SS_CENTERIMAGE
+    LTEXT           "転送するイベントログの選択",IDC_STATIC,18,122,254,14,SS_CENTERIMAGE
+    COMBOBOX        IDC_EVENTLOG_SELECT,17,146,177,58,CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | CBS_OEMCONVERT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "イベントログ",IDC_EVENTLOG,213,146,80,14
+    PUSHBUTTON      "&About",IDC_ABOUTBOX,174,224,79,20
+    CONTROL         "フルコンピュータ名で出力しない （コンピュータ名だけで出力されます）",IDC_FULLCN_NON,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,202,197,10
+    COMBOBOX        IDC_CHARCODE,84,175,210,71,CBS_DROPDOWNLIST | WS_TABSTOP
+    LTEXT           "文字コードの選択",IDC_STATIC,18,177,60,14,SS_CENTERIMAGE
+END
+
+IDD_SYSLOGD_DIALOG DIALOGEX 0, 0, 320, 129
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Syslog サーバ設定"
+FONT 9, "MS UI Gothic", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "適用",IDOK,175,95,80,20
+    EDITTEXT        IDC_PRIMARY_SYSLOGD,120,20,180,14,ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_BACKUP_SYSLOGD,120,52,180,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "キャンセル",IDCANCEL,64,95,80,20
+    GROUPBOX        "イベントを転送するSyslogサーバのIPアドレスを入力してください",IDC_STATIC,7,7,306,83
+    LTEXT           "プライマリ Syslog Daemon :",IDC_STATIC,33,20,82,14,SS_CENTERIMAGE
+    LTEXT           "バックアップ Syslog Daemon :",IDC_STATIC,33,52,82,14,SS_CENTERIMAGE
+    LTEXT           "必須",IDC_STATIC,120,36,69,8
+    LTEXT           "バックアップサーバが無い場合は空欄",IDC_STATIC,120,68,180,16
+END
+
+IDD_SERVER_DIALOG DIALOGEX 0, 0, 320, 157
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "NTSyslog サービスコントロールマネージャ"
+FONT 9, "MS UI Gothic", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "適用",IDOK,172,123,80,20
+    PUSHBUTTON      "キャンセル",IDCANCEL,68,123,80,20
+    GROUPBOX        "管理するサーバの選択",IDC_STATIC,7,7,306,112
+    LTEXT           "サーバへの接続方法:\n\n1) NTSyslog をサーバにインストールします\n2) サーバのネットワークレジストリアクセスを有効にします\n3) サーバの管理者権限が必要です",IDC_STATIC,21,25,269,43
+    EDITTEXT        IDC_COMPUTER,21,96,210,14,ES_AUTOHSCROLL | ES_WANTRETURN
+    PUSHBUTTON      "参照",IDC_SELECT_COMPUTER,238,96,60,14
+    LTEXT           "サーバ名を入力するか参照ボタンをクリックしてサーバを選択してください",IDC_STATIC,21,72,269,19
+END
+
+IDD_CONFIG_LOG DIALOGEX 0, 0, 320, 164
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "%s 設定"
+FONT 9, "MS UI Gothic", 400, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "適用",IDOK,177,129,80,20
+    CONTROL         "Forward Information Events.",IDC_INFORMATION_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,39,31,109,10
+    CONTROL         "Forward Warning Events.",IDC_WARNING_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,39,43,109,10
+    CONTROL         "Forward Error Events.",IDC_ERROR_CHECK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,39,55,109,10
+    CONTROL         "Forward Audit Success Events.",IDC_AUDIT_SUCCESS_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,39,67,108,10
+    CONTROL         "Forward Audit Failure Events.",IDC_AUDIT_FAILURE_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,39,79,109,10
+    PUSHBUTTON      "キャンセル",IDCANCEL,63,129,80,20
+    GROUPBOX        "転送する %s ログイベントを選択してください",IDC_LABEL,7,7,306,110
+    PUSHBUTTON      "初期値を設定",IDC_DEFAULTS,38,96,243,14
+    LTEXT           "Facility:",IDC_STATIC,150,18,24,8
+    LTEXT           "Severity:",IDC_STATIC,221,18,27,8
+    COMBOBOX        IDC_INFO_FACILITY,150,30,70,110,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_INFO_SEVERITY,221,30,58,118,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_WARNING_FACILITY,150,42,70,98,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_WARNING_SEVERITY,221,42,58,106,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_ERROR_FACILITY,150,54,70,88,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_ERROR_SEVERITY,221,54,58,94,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_AUDIT_SUCCESS_FACILITY,150,66,70,74,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_AUDIT_SUCCESS_SEVERITY,221,66,58,82,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_AUDIT_FAILURE_FACILITY,150,78,70,63,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_AUDIT_FAILURE_SEVERITY,221,78,58,70,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 135
+    END
+
+    IDD_NTSYSLOGCTRL_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 312
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 260
+    END
+
+    IDD_SYSLOGD_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 122
+    END
+
+    IDD_SERVER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 150
+    END
+
+    IDD_CONFIG_LOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 157
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_CONFIG_LOG DLGINIT
+BEGIN
+    IDC_INFO_FACILITY, 0x403, 11, 0
+0x3028, 0x2029, 0x656b, 0x6e72, 0x6c65, "\000" 
+    IDC_INFO_FACILITY, 0x403, 9, 0
+0x3128, 0x2029, 0x7375, 0x7265, "\000" 
+    IDC_INFO_FACILITY, 0x403, 9, 0
+0x3228, 0x2029, 0x616d, 0x6c69, "\000" 
+    IDC_INFO_FACILITY, 0x403, 11, 0
+0x3328, 0x2029, 0x7973, 0x7473, 0x6d65, "\000" 
+    IDC_INFO_FACILITY, 0x403, 20, 0
+0x3428, 0x2029, 0x6573, 0x7563, 0x6972, 0x7974, 0x612f, 0x7475, 0x2068, 
+0x0031, 
+    IDC_INFO_FACILITY, 0x403, 11, 0
+0x3528, 0x2029, 0x7973, 0x6c73, 0x676f, "\000" 
+    IDC_INFO_FACILITY, 0x403, 17, 0
+0x3628, 0x2029, 0x696c, 0x656e, 0x7020, 0x6972, 0x746e, 0x7265, "\000" 
+    IDC_INFO_FACILITY, 0x403, 9, 0
+0x3728, 0x2029, 0x656e, 0x7377, "\000" 
+    IDC_INFO_FACILITY, 0x403, 9, 0
+0x3828, 0x2029, 0x7575, 0x7063, "\000" 
+    IDC_INFO_FACILITY, 0x403, 12, 0
+0x3928, 0x2029, 0x6c63, 0x636f, 0x206b, 0x0031, 
+    IDC_INFO_FACILITY, 0x403, 21, 0
+0x3128, 0x2930, 0x7320, 0x6365, 0x7275, 0x7469, 0x2f79, 0x7561, 0x6874, 
+0x3220, "\000" 
+    IDC_INFO_FACILITY, 0x403, 9, 0
+0x3128, 0x2931, 0x6620, 0x7074, "\000" 
+    IDC_INFO_FACILITY, 0x403, 9, 0
+0x3128, 0x2932, 0x6e20, 0x7074, "\000" 
+    IDC_INFO_FACILITY, 0x403, 15, 0
+0x3128, 0x2933, 0x6c20, 0x676f, 0x6120, 0x6475, 0x7469, "\000" 
+    IDC_INFO_FACILITY, 0x403, 15, 0
+0x3128, 0x2934, 0x6c20, 0x676f, 0x6120, 0x656c, 0x7472, "\000" 
+    IDC_INFO_FACILITY, 0x403, 13, 0
+0x3128, 0x2935, 0x6320, 0x6f6c, 0x6b63, 0x3220, "\000" 
+    IDC_INFO_FACILITY, 0x403, 13, 0
+0x3128, 0x2936, 0x6c20, 0x636f, 0x6c61, 0x3020, "\000" 
+    IDC_INFO_FACILITY, 0x403, 13, 0
+0x3128, 0x2937, 0x6c20, 0x636f, 0x6c61, 0x3120, "\000" 
+    IDC_INFO_FACILITY, 0x403, 13, 0
+0x3128, 0x2938, 0x6c20, 0x636f, 0x6c61, 0x3220, "\000" 
+    IDC_INFO_FACILITY, 0x403, 13, 0
+0x3128, 0x2939, 0x6c20, 0x636f, 0x6c61, 0x3320, "\000" 
+    IDC_INFO_FACILITY, 0x403, 13, 0
+0x3228, 0x2930, 0x6c20, 0x636f, 0x6c61, 0x3420, "\000" 
+    IDC_INFO_FACILITY, 0x403, 13, 0
+0x3228, 0x2931, 0x6c20, 0x636f, 0x6c61, 0x3520, "\000" 
+    IDC_INFO_FACILITY, 0x403, 13, 0
+0x3228, 0x2932, 0x6c20, 0x636f, 0x6c61, 0x3620, "\000" 
+    IDC_INFO_FACILITY, 0x403, 13, 0
+0x3228, 0x2933, 0x6c20, 0x636f, 0x6c61, 0x3720, "\000" 
+    IDC_INFO_SEVERITY, 0x403, 14, 0
+0x3028, 0x2029, 0x6d65, 0x7265, 0x6567, 0x636e, 0x0079, 
+    IDC_INFO_SEVERITY, 0x403, 10, 0
+0x3128, 0x2029, 0x6c61, 0x7265, 0x0074, 
+    IDC_INFO_SEVERITY, 0x403, 13, 0
+0x3228, 0x2029, 0x7263, 0x7469, 0x6369, 0x6c61, "\000" 
+    IDC_INFO_SEVERITY, 0x403, 10, 0
+0x3328, 0x2029, 0x7265, 0x6f72, 0x0072, 
+    IDC_INFO_SEVERITY, 0x403, 12, 0
+0x3428, 0x2029, 0x6177, 0x6e72, 0x6e69, 0x0067, 
+    IDC_INFO_SEVERITY, 0x403, 11, 0
+0x3528, 0x2029, 0x6f6e, 0x6974, 0x6563, "\000" 
+    IDC_INFO_SEVERITY, 0x403, 16, 0
+0x3628, 0x2029, 0x6e69, 0x6f66, 0x6d72, 0x7461, 0x6f69, 0x006e, 
+    IDC_INFO_SEVERITY, 0x403, 10, 0
+0x3728, 0x2029, 0x6564, 0x7562, 0x0067, 
+    IDC_WARNING_FACILITY, 0x403, 11, 0
+0x3028, 0x2029, 0x656b, 0x6e72, 0x6c65, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 9, 0
+0x3128, 0x2029, 0x7375, 0x7265, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 9, 0
+0x3228, 0x2029, 0x616d, 0x6c69, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 11, 0
+0x3328, 0x2029, 0x7973, 0x7473, 0x6d65, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 20, 0
+0x3428, 0x2029, 0x6573, 0x7563, 0x6972, 0x7974, 0x612f, 0x7475, 0x2068, 
+0x0031, 
+    IDC_WARNING_FACILITY, 0x403, 11, 0
+0x3528, 0x2029, 0x7973, 0x6c73, 0x676f, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 17, 0
+0x3628, 0x2029, 0x696c, 0x656e, 0x7020, 0x6972, 0x746e, 0x7265, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 9, 0
+0x3728, 0x2029, 0x656e, 0x7377, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 9, 0
+0x3828, 0x2029, 0x7575, 0x7063, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 12, 0
+0x3928, 0x2029, 0x6c63, 0x636f, 0x206b, 0x0031, 
+    IDC_WARNING_FACILITY, 0x403, 21, 0
+0x3128, 0x2930, 0x7320, 0x6365, 0x7275, 0x7469, 0x2f79, 0x7561, 0x6874, 
+0x3220, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 9, 0
+0x3128, 0x2931, 0x6620, 0x7074, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 9, 0
+0x3128, 0x2932, 0x6e20, 0x7074, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 15, 0
+0x3128, 0x2933, 0x6c20, 0x676f, 0x6120, 0x6475, 0x7469, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 15, 0
+0x3128, 0x2934, 0x6c20, 0x676f, 0x6120, 0x656c, 0x7472, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 13, 0
+0x3128, 0x2935, 0x6320, 0x6f6c, 0x6b63, 0x3220, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 13, 0
+0x3128, 0x2936, 0x6c20, 0x636f, 0x6c61, 0x3020, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 13, 0
+0x3128, 0x2937, 0x6c20, 0x636f, 0x6c61, 0x3120, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 13, 0
+0x3128, 0x2938, 0x6c20, 0x636f, 0x6c61, 0x3220, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 13, 0
+0x3128, 0x2939, 0x6c20, 0x636f, 0x6c61, 0x3320, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 13, 0
+0x3228, 0x2930, 0x6c20, 0x636f, 0x6c61, 0x3420, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 13, 0
+0x3228, 0x2931, 0x6c20, 0x636f, 0x6c61, 0x3520, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 13, 0
+0x3228, 0x2932, 0x6c20, 0x636f, 0x6c61, 0x3620, "\000" 
+    IDC_WARNING_FACILITY, 0x403, 13, 0
+0x3228, 0x2933, 0x6c20, 0x636f, 0x6c61, 0x3720, "\000" 
+    IDC_WARNING_SEVERITY, 0x403, 14, 0
+0x3028, 0x2029, 0x6d65, 0x7265, 0x6567, 0x636e, 0x0079, 
+    IDC_WARNING_SEVERITY, 0x403, 10, 0
+0x3128, 0x2029, 0x6c61, 0x7265, 0x0074, 
+    IDC_WARNING_SEVERITY, 0x403, 13, 0
+0x3228, 0x2029, 0x7263, 0x7469, 0x6369, 0x6c61, "\000" 
+    IDC_WARNING_SEVERITY, 0x403, 10, 0
+0x3328, 0x2029, 0x7265, 0x6f72, 0x0072, 
+    IDC_WARNING_SEVERITY, 0x403, 12, 0
+0x3428, 0x2029, 0x6177, 0x6e72, 0x6e69, 0x0067, 
+    IDC_WARNING_SEVERITY, 0x403, 11, 0
+0x3528, 0x2029, 0x6f6e, 0x6974, 0x6563, "\000" 
+    IDC_WARNING_SEVERITY, 0x403, 16, 0
+0x3628, 0x2029, 0x6e69, 0x6f66, 0x6d72, 0x7461, 0x6f69, 0x006e, 
+    IDC_WARNING_SEVERITY, 0x403, 10, 0
+0x3728, 0x2029, 0x6564, 0x7562, 0x0067, 
+    IDC_ERROR_FACILITY, 0x403, 11, 0
+0x3028, 0x2029, 0x656b, 0x6e72, 0x6c65, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 9, 0
+0x3128, 0x2029, 0x7375, 0x7265, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 9, 0
+0x3228, 0x2029, 0x616d, 0x6c69, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 11, 0
+0x3328, 0x2029, 0x7973, 0x7473, 0x6d65, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 20, 0
+0x3428, 0x2029, 0x6573, 0x7563, 0x6972, 0x7974, 0x612f, 0x7475, 0x2068, 
+0x0031, 
+    IDC_ERROR_FACILITY, 0x403, 11, 0
+0x3528, 0x2029, 0x7973, 0x6c73, 0x676f, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 17, 0
+0x3628, 0x2029, 0x696c, 0x656e, 0x7020, 0x6972, 0x746e, 0x7265, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 9, 0
+0x3728, 0x2029, 0x656e, 0x7377, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 9, 0
+0x3828, 0x2029, 0x7575, 0x7063, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 12, 0
+0x3928, 0x2029, 0x6c63, 0x636f, 0x206b, 0x0031, 
+    IDC_ERROR_FACILITY, 0x403, 21, 0
+0x3128, 0x2930, 0x7320, 0x6365, 0x7275, 0x7469, 0x2f79, 0x7561, 0x6874, 
+0x3220, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 9, 0
+0x3128, 0x2931, 0x6620, 0x7074, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 9, 0
+0x3128, 0x2932, 0x6e20, 0x7074, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 15, 0
+0x3128, 0x2933, 0x6c20, 0x676f, 0x6120, 0x6475, 0x7469, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 15, 0
+0x3128, 0x2934, 0x6c20, 0x676f, 0x6120, 0x656c, 0x7472, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 13, 0
+0x3128, 0x2935, 0x6320, 0x6f6c, 0x6b63, 0x3220, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 13, 0
+0x3128, 0x2936, 0x6c20, 0x636f, 0x6c61, 0x3020, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 13, 0
+0x3128, 0x2937, 0x6c20, 0x636f, 0x6c61, 0x3120, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 13, 0
+0x3128, 0x2938, 0x6c20, 0x636f, 0x6c61, 0x3220, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 13, 0
+0x3128, 0x2939, 0x6c20, 0x636f, 0x6c61, 0x3320, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 13, 0
+0x3228, 0x2930, 0x6c20, 0x636f, 0x6c61, 0x3420, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 13, 0
+0x3228, 0x2931, 0x6c20, 0x636f, 0x6c61, 0x3520, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 13, 0
+0x3228, 0x2932, 0x6c20, 0x636f, 0x6c61, 0x3620, "\000" 
+    IDC_ERROR_FACILITY, 0x403, 13, 0
+0x3228, 0x2933, 0x6c20, 0x636f, 0x6c61, 0x3720, "\000" 
+    IDC_ERROR_SEVERITY, 0x403, 14, 0
+0x3028, 0x2029, 0x6d65, 0x7265, 0x6567, 0x636e, 0x0079, 
+    IDC_ERROR_SEVERITY, 0x403, 10, 0
+0x3128, 0x2029, 0x6c61, 0x7265, 0x0074, 
+    IDC_ERROR_SEVERITY, 0x403, 13, 0
+0x3228, 0x2029, 0x7263, 0x7469, 0x6369, 0x6c61, "\000" 
+    IDC_ERROR_SEVERITY, 0x403, 10, 0
+0x3328, 0x2029, 0x7265, 0x6f72, 0x0072, 
+    IDC_ERROR_SEVERITY, 0x403, 12, 0
+0x3428, 0x2029, 0x6177, 0x6e72, 0x6e69, 0x0067, 
+    IDC_ERROR_SEVERITY, 0x403, 11, 0
+0x3528, 0x2029, 0x6f6e, 0x6974, 0x6563, "\000" 
+    IDC_ERROR_SEVERITY, 0x403, 16, 0
+0x3628, 0x2029, 0x6e69, 0x6f66, 0x6d72, 0x7461, 0x6f69, 0x006e, 
+    IDC_ERROR_SEVERITY, 0x403, 10, 0
+0x3728, 0x2029, 0x6564, 0x7562, 0x0067, 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 11, 0
+0x3028, 0x2029, 0x656b, 0x6e72, 0x6c65, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 9, 0
+0x3128, 0x2029, 0x7375, 0x7265, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 9, 0
+0x3228, 0x2029, 0x616d, 0x6c69, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 11, 0
+0x3328, 0x2029, 0x7973, 0x7473, 0x6d65, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 20, 0
+0x3428, 0x2029, 0x6573, 0x7563, 0x6972, 0x7974, 0x612f, 0x7475, 0x2068, 
+0x0031, 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 11, 0
+0x3528, 0x2029, 0x7973, 0x6c73, 0x676f, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 17, 0
+0x3628, 0x2029, 0x696c, 0x656e, 0x7020, 0x6972, 0x746e, 0x7265, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 9, 0
+0x3728, 0x2029, 0x656e, 0x7377, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 9, 0
+0x3828, 0x2029, 0x7575, 0x7063, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 12, 0
+0x3928, 0x2029, 0x6c63, 0x636f, 0x206b, 0x0031, 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 21, 0
+0x3128, 0x2930, 0x7320, 0x6365, 0x7275, 0x7469, 0x2f79, 0x7561, 0x6874, 
+0x3220, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 9, 0
+0x3128, 0x2931, 0x6620, 0x7074, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 9, 0
+0x3128, 0x2932, 0x6e20, 0x7074, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 15, 0
+0x3128, 0x2933, 0x6c20, 0x676f, 0x6120, 0x6475, 0x7469, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 15, 0
+0x3128, 0x2934, 0x6c20, 0x676f, 0x6120, 0x656c, 0x7472, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 13, 0
+0x3128, 0x2935, 0x6320, 0x6f6c, 0x6b63, 0x3220, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 13, 0
+0x3128, 0x2936, 0x6c20, 0x636f, 0x6c61, 0x3020, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 13, 0
+0x3128, 0x2937, 0x6c20, 0x636f, 0x6c61, 0x3120, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 13, 0
+0x3128, 0x2938, 0x6c20, 0x636f, 0x6c61, 0x3220, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 13, 0
+0x3128, 0x2939, 0x6c20, 0x636f, 0x6c61, 0x3320, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 13, 0
+0x3228, 0x2930, 0x6c20, 0x636f, 0x6c61, 0x3420, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 13, 0
+0x3228, 0x2931, 0x6c20, 0x636f, 0x6c61, 0x3520, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 13, 0
+0x3228, 0x2932, 0x6c20, 0x636f, 0x6c61, 0x3620, "\000" 
+    IDC_AUDIT_SUCCESS_FACILITY, 0x403, 13, 0
+0x3228, 0x2933, 0x6c20, 0x636f, 0x6c61, 0x3720, "\000" 
+    IDC_AUDIT_SUCCESS_SEVERITY, 0x403, 14, 0
+0x3028, 0x2029, 0x6d65, 0x7265, 0x6567, 0x636e, 0x0079, 
+    IDC_AUDIT_SUCCESS_SEVERITY, 0x403, 10, 0
+0x3128, 0x2029, 0x6c61, 0x7265, 0x0074, 
+    IDC_AUDIT_SUCCESS_SEVERITY, 0x403, 13, 0
+0x3228, 0x2029, 0x7263, 0x7469, 0x6369, 0x6c61, "\000" 
+    IDC_AUDIT_SUCCESS_SEVERITY, 0x403, 10, 0
+0x3328, 0x2029, 0x7265, 0x6f72, 0x0072, 
+    IDC_AUDIT_SUCCESS_SEVERITY, 0x403, 12, 0
+0x3428, 0x2029, 0x6177, 0x6e72, 0x6e69, 0x0067, 
+    IDC_AUDIT_SUCCESS_SEVERITY, 0x403, 11, 0
+0x3528, 0x2029, 0x6f6e, 0x6974, 0x6563, "\000" 
+    IDC_AUDIT_SUCCESS_SEVERITY, 0x403, 16, 0
+0x3628, 0x2029, 0x6e69, 0x6f66, 0x6d72, 0x7461, 0x6f69, 0x006e, 
+    IDC_AUDIT_SUCCESS_SEVERITY, 0x403, 10, 0
+0x3728, 0x2029, 0x6564, 0x7562, 0x0067, 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 11, 0
+0x3028, 0x2029, 0x656b, 0x6e72, 0x6c65, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 9, 0
+0x3128, 0x2029, 0x7375, 0x7265, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 9, 0
+0x3228, 0x2029, 0x616d, 0x6c69, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 11, 0
+0x3328, 0x2029, 0x7973, 0x7473, 0x6d65, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 20, 0
+0x3428, 0x2029, 0x6573, 0x7563, 0x6972, 0x7974, 0x612f, 0x7475, 0x2068, 
+0x0031, 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 11, 0
+0x3528, 0x2029, 0x7973, 0x6c73, 0x676f, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 17, 0
+0x3628, 0x2029, 0x696c, 0x656e, 0x7020, 0x6972, 0x746e, 0x7265, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 9, 0
+0x3728, 0x2029, 0x656e, 0x7377, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 9, 0
+0x3828, 0x2029, 0x7575, 0x7063, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 12, 0
+0x3928, 0x2029, 0x6c63, 0x636f, 0x206b, 0x0031, 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 21, 0
+0x3128, 0x2930, 0x7320, 0x6365, 0x7275, 0x7469, 0x2f79, 0x7561, 0x6874, 
+0x3220, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 9, 0
+0x3128, 0x2931, 0x6620, 0x7074, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 9, 0
+0x3128, 0x2932, 0x6e20, 0x7074, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 15, 0
+0x3128, 0x2933, 0x6c20, 0x676f, 0x6120, 0x6475, 0x7469, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 15, 0
+0x3128, 0x2934, 0x6c20, 0x676f, 0x6120, 0x656c, 0x7472, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 13, 0
+0x3128, 0x2935, 0x6320, 0x6f6c, 0x6b63, 0x3220, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 13, 0
+0x3128, 0x2936, 0x6c20, 0x636f, 0x6c61, 0x3020, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 13, 0
+0x3128, 0x2937, 0x6c20, 0x636f, 0x6c61, 0x3120, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 13, 0
+0x3128, 0x2938, 0x6c20, 0x636f, 0x6c61, 0x3220, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 13, 0
+0x3128, 0x2939, 0x6c20, 0x636f, 0x6c61, 0x3320, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 13, 0
+0x3228, 0x2930, 0x6c20, 0x636f, 0x6c61, 0x3420, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 13, 0
+0x3228, 0x2931, 0x6c20, 0x636f, 0x6c61, 0x3520, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 13, 0
+0x3228, 0x2932, 0x6c20, 0x636f, 0x6c61, 0x3620, "\000" 
+    IDC_AUDIT_FAILURE_FACILITY, 0x403, 13, 0
+0x3228, 0x2933, 0x6c20, 0x636f, 0x6c61, 0x3720, "\000" 
+    IDC_AUDIT_FAILURE_SEVERITY, 0x403, 14, 0
+0x3028, 0x2029, 0x6d65, 0x7265, 0x6567, 0x636e, 0x0079, 
+    IDC_AUDIT_FAILURE_SEVERITY, 0x403, 10, 0
+0x3128, 0x2029, 0x6c61, 0x7265, 0x0074, 
+    IDC_AUDIT_FAILURE_SEVERITY, 0x403, 13, 0
+0x3228, 0x2029, 0x7263, 0x7469, 0x6369, 0x6c61, "\000" 
+    IDC_AUDIT_FAILURE_SEVERITY, 0x403, 10, 0
+0x3328, 0x2029, 0x7265, 0x6f72, 0x0072, 
+    IDC_AUDIT_FAILURE_SEVERITY, 0x403, 12, 0
+0x3428, 0x2029, 0x6177, 0x6e72, 0x6e69, 0x0067, 
+    IDC_AUDIT_FAILURE_SEVERITY, 0x403, 11, 0
+0x3528, 0x2029, 0x6f6e, 0x6974, 0x6563, "\000" 
+    IDC_AUDIT_FAILURE_SEVERITY, 0x403, 16, 0
+0x3628, 0x2029, 0x6e69, 0x6f66, 0x6d72, 0x7461, 0x6f69, 0x006e, 
+    IDC_AUDIT_FAILURE_SEVERITY, 0x403, 10, 0
+0x3728, 0x2029, 0x6564, 0x7562, 0x0067, 
+    0
+END
+
+IDD_NTSYSLOGCTRL_DIALOG DLGINIT
+BEGIN
+    IDC_EVENTLOG_SELECT, 0x403, 1, 0
+"\000" 
+    IDC_CHARCODE, 0x403, 6, 0
+0x5455, 0x2d46, 0x0038, 
+    IDC_CHARCODE, 0x403, 7, 0
+0x5545, 0x2d43, 0x504a, "\000" 
+    IDC_CHARCODE, 0x403, 5, 0
+0x4a53, 0x5349, "\000" 
+    0
+END
+
+#endif    // 日本語 (日本) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// フランス語 (フランス) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\NTSyslogCtrl.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // フランス語 (フランス) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\NTSyslogCtrl.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
