@@ -760,7 +760,8 @@ Windows Registry Editor Version 5.00
 					}
 					if (pXMLBuffer != NULL) free(pXMLBuffer);
 				}
-				pMessageBuffer = (LPWSTR)malloc(NTSL_EVENT_LEN);
+//				pMessageBuffer = (LPWSTR)malloc(NTSL_EVENT_LEN);
+				pMessageBuffer = (LPWSTR)malloc(NTSL_EVENT_LEN * sizeof(WCHAR) / sizeof(TCHAR));
 				memset(pMessageBuffer,0,NTSL_EVENT_LEN);
 
 				if (strlen(strings) == 0 && !EvtFormatMessage(eventlog_providermetadata_handle, hEvents[i], 0, 0, NULL, EvtFormatMessageEvent, NTSL_EVENT_LEN, pMessageBuffer, &dwUsedBuffer))
